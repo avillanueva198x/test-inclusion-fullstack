@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ActiveProfiles("test")
 @WebMvcTest(MathProblemController.class)
-@Import(SecurityTestConfig.class)
+@Import({SecurityTestConfig.class, com.app.challenge.infrastructure.rest.advice.GlobalExceptionHandler.class})
 class MathProblemControllerTest {
 
     private static final String ENDPOINT = "/api/v1/math/solve";

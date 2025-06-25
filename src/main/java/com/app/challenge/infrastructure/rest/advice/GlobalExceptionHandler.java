@@ -13,22 +13,22 @@ import java.util.List;
 
 /**
  * Manejador global de excepciones para la aplicación.
- * 
+ *
  * Esta clase implementa el patrón de manejo centralizado de errores usando
- * @RestControllerAdvice, lo que permite capturar y manejar todas las excepciones
+ * RestControllerAdvice, lo que permite capturar y manejar todas las excepciones
  * que ocurran en los controllers de forma uniforme.
- * 
+ *
  * Beneficios de este enfoque:
  * - Consistencia en formato de respuestas de error
  * - Separación de responsabilidades (controllers no manejan errores)
  * - Logging centralizado de errores
  * - Fácil mantenimiento y evolución del manejo de errores
- * 
- * Todos los errores siguen el formato estándar: {"mensaje": "descripción"}
- * 
+ *
+ * Todos los errores siguen el formato estándar con mensaje descriptivo.
+ *
  * @author Adolfo Villanueva
- * @version 1.0
  * @since 2024-06-26
+ * @version 1.0
  */
 @Slf4j
 @RestControllerAdvice
@@ -36,10 +36,10 @@ public class GlobalExceptionHandler {
 
     /**
      * Maneja errores de tipo de contenido no soportado.
-     * 
+     *
      * Se activa cuando el cliente envía una petición con Content-Type no soportado.
      * Por ejemplo, cuando se envía text/plain en lugar de application/json.
-     * 
+     *
      * @param ex excepción de tipo de contenido no soportado
      * @return ResponseEntity con código 415 (Unsupported Media Type) y mensaje descriptivo
      */
@@ -53,14 +53,14 @@ public class GlobalExceptionHandler {
 
     /**
      * Maneja errores de validación de Bean Validation (Jakarta).
-     * 
-     * Se activa cuando las validaciones de @Valid fallan en los DTOs.
+     *
+     * Se activa cuando las validaciones de Valid fallan en los DTOs.
      * Extrae todos los mensajes de error de validación y los combina en un mensaje único.
-     * 
+     *
      * Ejemplos de validaciones que activan este handler:
-     * - @NotNull, @Min, @Max en MathProblemRequest
-     * - Valores fuera de rango (ej. x < 2, n > 10^9)
-     * 
+     * - NotNull, Min, Max en MathProblemRequest
+     * - Valores fuera de rango (ej. x menor que 2, n mayor que 10^9)
+     *
      * @param ex excepción de validación de argumentos
      * @return ResponseEntity con código 400 (Bad Request) y mensajes de validación
      */
@@ -75,18 +75,18 @@ public class GlobalExceptionHandler {
 
         String mensaje = String.join(" - ", errors);
         log.warn("Errores de validación: {}", mensaje);
-        
+
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
             .body(new ErrorResponse(mensaje));
     }
 
     /**
      * Maneja errores de lógica de negocio (IllegalArgumentException).
-     * 
+     *
      * Se activa cuando las validaciones de negocio fallan, como por ejemplo:
-     * - Cuando y >= x en el problema matemático
+     * - Cuando y es mayor o igual que x en el problema matemático
      * - Otras reglas de negocio específicas del dominio
-     * 
+     *
      * @param ex excepción de argumento ilegal
      * @return ResponseEntity con código 400 (Bad Request) y mensaje de la excepción
      */
@@ -99,11 +99,11 @@ public class GlobalExceptionHandler {
 
     /**
      * Maneja cualquier otra excepción no controlada específicamente.
-     * 
+     *
      * Este es el manejador de último recurso que captura cualquier excepción
      * no prevista en los otros handlers. Evita que se expongan detalles
      * internos de la aplicación al cliente.
-     * 
+     *
      * @param ex excepción genérica no controlada
      * @return ResponseEntity con código 500 (Internal Server Error) y mensaje genérico
      */
@@ -116,10 +116,10 @@ public class GlobalExceptionHandler {
 
     /**
      * DTO inmutable para respuestas de error.
-     * 
+     *
      * Utiliza un Record de Java para crear un DTO inmutable y eficiente.
      * Mantiene consistencia en el formato de todas las respuestas de error.
-     * 
+     *
      * @param mensaje descripción del error en formato amigable para el usuario
      */
     public record ErrorResponse(String mensaje) {
