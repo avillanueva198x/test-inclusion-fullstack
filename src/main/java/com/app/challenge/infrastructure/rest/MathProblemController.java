@@ -19,17 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Controller REST para resolver problemas matemáticos de Codeforces.
- *
- * Este controller expone endpoints para la resolución del problema 1374A
- * de Codeforces mediante API REST, siguiendo los principios de arquitectura
- * hexagonal donde actúa como un puerto de entrada (inbound adapter).
- *
- * Responsabilidades:
- * - Exponer endpoints HTTP para la funcionalidad de negocio
- * - Validar entrada mediante Bean Validation
- * - Delegar procesamiento al handler de aplicación
- * - Manejar responses HTTP apropiados
+ * Controller REST para resolver problemas matemáticos.
  *
  * @author Adolfo Villanueva
  * @since 2024-06-26
@@ -38,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/math")
 @RequiredArgsConstructor
-@Tag(name = "Math Problem", description = "API para resolver problemas matemáticos de Codeforces")
+@Tag(name = "Math Problem", description = "API para resolver problemas matemáticos")
 public class MathProblemController {
 
     /**
@@ -49,16 +39,8 @@ public class MathProblemController {
     /**
      * Resuelve el problema matemático de Codeforces 1374A.
      *
-     * Endpoint principal que recibe los parámetros x, y, n y retorna el máximo
-     * valor k tal que 0 ≤ k ≤ n y k mod x = y.
-     *
-     * Validaciones automáticas:
-     * - Parámetros obligatorios (NotNull)
-     * - Rangos de valores según especificaciones del problema
-     * - Formato JSON válido
-     *
-     * @param request DTO con parámetros validados x, y, n
-     * @return ResponseEntity con resultado del cálculo y código HTTP 200
+     * @param request parámetros x, y, n
+     * @return resultado del cálculo
      */
     @PostMapping("/solve")
     @Operation(summary = "Resolver problema matemático", description = "Calcula el máximo k tal que 0 ≤ k ≤ n y k mod x = y")

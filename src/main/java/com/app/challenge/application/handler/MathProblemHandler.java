@@ -8,17 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
- * Handler de aplicación para el problema matemático de Codeforces 1374A.
- *
- * En la arquitectura hexagonal, este handler actúa como el punto de entrada
- * de la capa de aplicación, orquestando las operaciones necesarias para
- * resolver el problema matemático.
- *
- * Su responsabilidad principal es:
- * - Recibir las peticiones del controller (puerto de entrada)
- * - Coordinar la ejecución del caso de uso correspondiente
- * - Retornar la respuesta formateada al controller
- * - Manejar el logging de las operaciones
+ * Handler para procesar solicitudes del problema matemático.
  *
  * @author Adolfo Villanueva
  * @since 2024-06-26
@@ -35,29 +25,18 @@ public class MathProblemHandler {
     private final MathProblemService mathProblemService;
 
     /**
-     * Maneja la petición de resolución del problema matemático.
+     * Procesa la solicitud del problema matemático.
      *
-     * Este método actúa como el punto de entrada principal del handler,
-     * coordinando la ejecución del caso de uso y el manejo de logs.
-     *
-     * Flujo de ejecución:
-     * 1. Log de inicio de operación
-     * 2. Delegación al servicio de aplicación
-     * 3. Log de finalización exitosa
-     * 4. Retorno de respuesta al controller
-     *
-     * @param request DTO con los parámetros del problema matemático
-     * @return MathProblemResponse con el resultado y parámetros originales
+     * @param request parámetros del problema
+     * @return respuesta con el resultado calculado
      */
     public MathProblemResponse handle(MathProblemRequest request) {
-        log.info("Iniciando resolución de problema matemático - x={}, y={}, n={}",
+        log.info("Procesando problema matemático - x={}, y={}, n={}",
             request.x(), request.y(), request.n());
 
         MathProblemResponse response = this.mathProblemService.solveMathProblem(request);
 
-        log.info("Problema matemático resuelto exitosamente - resultado: {}",
-            response.result());
-
+        log.info("Resultado calculado: {}", response.result());
         return response;
     }
 } 
