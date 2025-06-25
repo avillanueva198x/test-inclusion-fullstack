@@ -48,14 +48,14 @@ class MathProblemUseCaseTest {
     @Test
     @DisplayName("Debe calcular correctamente para números grandes")
     void shouldCalculateForLargeNumbers() {
-        // Arrange
-        MathProblemRequest request = new MathProblemRequest(999999999L, 187L, 999999999L);
+        // Arrange - caso del ejemplo de Codeforces: x=2, y=0, n=999999999
+        MathProblemRequest request = new MathProblemRequest(2L, 0L, 999999999L);
         
         // Act
         MathProblemResponse response = this.useCase.solveMathProblem(request);
         
-        // Assert
-        Assertions.assertEquals(999999999L, response.result());
+        // Assert - k = 0 + floor((999999999-0)/2) * 2 = 0 + 499999999 * 2 = 999999998
+        Assertions.assertEquals(999999998L, response.result());
     }
 
     @Test
