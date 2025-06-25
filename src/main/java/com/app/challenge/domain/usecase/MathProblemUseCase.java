@@ -58,4 +58,4 @@ public class MathProblemUseCase implements MathProblemService {
         log.debug("Calculado k = {}", k);
         return k;
     }
-} 
+}

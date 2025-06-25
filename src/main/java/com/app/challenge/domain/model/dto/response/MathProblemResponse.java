@@ -25,4 +25,4 @@ public record MathProblemResponse(
     @Schema(description = "Parámetro n", example = "12345")
     Long n
 ) {
-} 
+}

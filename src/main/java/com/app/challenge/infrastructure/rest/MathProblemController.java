@@ -45,12 +45,12 @@ public class MathProblemController {
     @PostMapping("/solve")
     @Operation(summary = "Resolver problema matemático", description = "Calcula el máximo k tal que 0 ≤ k ≤ n y k mod x = y")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Problema resuelto exitosamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = MathProblemResponse.class), examples = @ExampleObject(value = "{\"result\":12339,\"x\":7,\"y\":5,\"n\":12345}"))),
-        @ApiResponse(responseCode = "400", description = "Parámetros inválidos", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = "{\"mensaje\":\"x debe ser mayor o igual a 2\"}"))),
-        @ApiResponse(responseCode = "500", description = "Error interno del servidor", content = @Content(mediaType = "application/json", examples = @ExampleObject(value = "{\"mensaje\":\"Error interno del servidor\"}")))
+        @ApiResponse(responseCode = "200", description = "Problema resuelto exitosamente"),
+        @ApiResponse(responseCode = "400", description = "Parámetros inválidos"),
+        @ApiResponse(responseCode = "500", description = "Error interno del servidor")
     })
     public ResponseEntity<MathProblemResponse> solveMathProblem(@Valid @RequestBody MathProblemRequest request) {
         MathProblemResponse response = this.mathProblemHandler.handle(request);
         return ResponseEntity.ok(response);
     }
-} 
+}

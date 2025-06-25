@@ -32,4 +32,4 @@ public record MathProblemRequest(
     @Max(value = 1000000000L, message = "n debe ser menor o igual a 1000000000")
     Long n
 ) {
-} 
+}

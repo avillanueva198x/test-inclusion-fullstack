@@ -39,4 +39,4 @@ public class MathProblemHandler {
         log.info("Resultado calculado: {}", response.result());
         return response;
     }
-} 
+}
