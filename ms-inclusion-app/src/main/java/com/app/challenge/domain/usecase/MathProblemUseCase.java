@@ -30,11 +30,12 @@ public class MathProblemUseCase implements MathProblemService {
     public MathProblemResponse solveMathProblem(MathProblemRequest request) {
         log.info("Resolviendo problema matemático con x={}, y={}, n={}", request.x(), request.y(), request.n());
 
-        long result = calculateMaxK(request.x(), request.y(), request.n());
-
-        if (result != -1 && request.y() >= request.x()) {
-            throw new IllegalArgumentException("y debe ser menor que x");
+        // Validar que y < x (condición del problema)
+        if (request.y() >= request.x()) {
+            throw new IllegalArgumentException("y debe ser menor que x (y < x)");
         }
+
+        long result = calculateMaxK(request.x(), request.y(), request.n());
 
         log.info("Resultado calculado: {}", result);
         return new MathProblemResponse(result, request.x(), request.y(), request.n());
