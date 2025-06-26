@@ -10,19 +10,6 @@ Aplicación fullstack para resolver el problema matemático de **Codeforces 1374
 
 [Ver problema original](https://codeforces.com/problemset/problem/1374/A)
 
-## 🏗️ Arquitectura
-
-```
-test-inclusion-fullstack/
-├── ms-inclusion-app/          # Backend Spring Boot
-│   ├── src/main/java/        # Código fuente Java
-│   ├── src/test/java/        # Tests unitarios
-│   └── additional/           # Documentación y Postman
-├── front-inclusion-app/       # Frontend Angular 19
-│   ├── src/app/              # Código fuente Angular
-│   └── public/               # Archivos públicos
-└── README.md                 # Este archivo
-```
 
 ## 🚀 Tecnologías Utilizadas
 
@@ -86,16 +73,6 @@ ng serve
 
 ## 📝 Uso de la Aplicación
 
-### Interfaz Web
-
-1. Abre tu navegador en `http://localhost:4200`
-2. Ingresa los parámetros:
-   - **x**: Base del módulo (2 ≤ x ≤ 10^9)
-   - **y**: Residuo deseado (0 ≤ y < x)
-   - **n**: Límite superior (1 ≤ n ≤ 10^9)
-3. Presiona "Resolver Problema"
-4. Ve el resultado con verificación matemática
-
 ### API REST (Postman/cURL)
 
 ```bash
@@ -135,31 +112,6 @@ curl -X POST http://localhost:9191/api/v1/math/solve \
 - **Salida esperada**: -1
 - **Verificación**: No existe k ≤ 4 tal que k mod 10 = 5
 
-## 🔍 Testing
-
-### Backend Tests
-
-```bash
-cd ms-inclusion-app
-
-# Ejecutar todos los tests
-./gradlew test
-
-# Ver reporte de cobertura
-./gradlew jacocoTestReport
-```
-
-### Frontend Tests
-
-```bash
-cd front-inclusion-app
-
-# Ejecutar tests unitarios
-ng test
-
-# Ejecutar tests e2e
-ng e2e
-```
 
 ## 📚 Documentación
 
@@ -167,7 +119,7 @@ ng e2e
 
 Una vez que el backend esté ejecutándose, puedes acceder a:
 
-- **Swagger UI**: http://localhost:9191/swagger-ui.html
+- **Swagger UI**: http://localhost:9191/swagger-ui.html / http://ec2-54-163-44-148.compute-1.amazonaws.com:9191/swagger-ui/index.html
 - **OpenAPI JSON**: http://localhost:9191/api-docs
 
 ### Postman Collection
@@ -192,16 +144,13 @@ ng build --configuration production
 # Los archivos estarán en dist/front-inclusion-app/
 ```
 
-### Docker (Opcional)
+### Docker
 
 ```bash
 # Backend
 cd ms-inclusion-app
 docker build -t math-problem-backend .
 
-# Frontend
-cd front-inclusion-app
-docker build -t math-problem-frontend .
 ```
 
 ## 🔧 Configuración
@@ -214,27 +163,6 @@ El backend está configurado para permitir requests desde `http://localhost:4200
 // ms-inclusion-app/src/main/java/.../config/CorsConfig.java
 ```
 
-### URL del Backend
-
-Si despliegas el backend en una URL diferente, actualiza:
-
-```typescript
-// front-inclusion-app/src/app/services/math-problem.service.ts
-private readonly baseUrl = 'http://localhost:9191'; // Cambiar aquí
-```
-
-## 📋 Checklist de Evaluación
-
-- ✅ **Problema resuelto correctamente** (Codeforces 1374A)
-- ✅ **API REST implementada** con Spring Boot
-- ✅ **Tests unitarios** incluidos
-- ✅ **Frontend moderno** con Angular 19
-- ✅ **Documentación completa** con Swagger
-- ✅ **Validación de parámetros** en backend y frontend
-- ✅ **Manejo de errores** adecuado
-- ✅ **Código comentado** y bien estructurado
-- ✅ **README detallado** con instrucciones
-- ✅ **Diseño responsivo** para móviles
 
 ## 🚨 Troubleshooting
 
