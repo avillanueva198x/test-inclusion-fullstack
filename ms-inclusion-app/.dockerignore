@@ -1,0 +1,12 @@
+# Incluir SOLO el JAR ejecutable
+# Excluir todo excepto el JAR específico
+*
+!build/libs/ms-inclusion-app-0.0.1.jar
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore 

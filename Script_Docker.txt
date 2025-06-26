@@ -1,0 +1,5 @@
+ls
+docker build -t inclusion .
+docker run -e TZ=America/Bogota -d -p 9191:9191 inclusion
+docker ps
+docker logs -f e66dcf87953c
