@@ -114,4 +114,4 @@ class MathProblemUseCaseTest {
         Assertions.assertEquals("y debe ser menor que x", exception1.getMessage());
         Assertions.assertEquals("y debe ser menor que x", exception2.getMessage());
     }
-} 
+}

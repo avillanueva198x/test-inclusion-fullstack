@@ -178,4 +178,4 @@ class MathProblemControllerTest {
                 .andExpect(jsonPath(JSON_MENSAJE).value("Error interno del servidor"));
         });
     }
-} 
+}

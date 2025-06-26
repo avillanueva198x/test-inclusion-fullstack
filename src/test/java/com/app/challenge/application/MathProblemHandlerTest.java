@@ -37,7 +37,7 @@ class MathProblemHandlerTest {
     void shouldProcessRequestSuccessfully() {
         // Arrange
         Mockito.when(this.mathProblemService.solveMathProblem(this.request))
-               .thenReturn(this.expectedResponse);
+            .thenReturn(this.expectedResponse);
 
         // Act
         MathProblemResponse response = this.handler.handle(this.request);
@@ -75,4 +75,4 @@ class MathProblemHandlerTest {
         Mockito.verify(this.mathProblemService).solveMathProblem(request1);
         Mockito.verify(this.mathProblemService).solveMathProblem(request2);
     }
-} 
+}
