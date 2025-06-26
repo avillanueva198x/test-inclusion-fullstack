@@ -47,7 +47,7 @@ class MathProblemHandlerTest {
         Assertions.assertEquals(this.expectedResponse.x(), response.x());
         Assertions.assertEquals(this.expectedResponse.y(), response.y());
         Assertions.assertEquals(this.expectedResponse.n(), response.n());
-        
+
         Mockito.verify(this.mathProblemService).solveMathProblem(this.request);
     }
 
@@ -57,7 +57,7 @@ class MathProblemHandlerTest {
         // Arrange
         MathProblemRequest request1 = new MathProblemRequest(5L, 0L, 4L);
         MathProblemResponse response1 = new MathProblemResponse(0L, 5L, 0L, 4L);
-        
+
         MathProblemRequest request2 = new MathProblemRequest(10L, 5L, 15L);
         MathProblemResponse response2 = new MathProblemResponse(15L, 10L, 5L, 15L);
 
@@ -71,7 +71,7 @@ class MathProblemHandlerTest {
         // Assert
         Assertions.assertEquals(0L, result1.result());
         Assertions.assertEquals(15L, result2.result());
-        
+
         Mockito.verify(this.mathProblemService).solveMathProblem(request1);
         Mockito.verify(this.mathProblemService).solveMathProblem(request2);
     }

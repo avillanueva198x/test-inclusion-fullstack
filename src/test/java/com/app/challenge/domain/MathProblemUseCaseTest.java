@@ -21,10 +21,10 @@ class MathProblemUseCaseTest {
     void shouldCalculateMaxKSuccessfully() {
         // Arrange
         MathProblemRequest request = new MathProblemRequest(7L, 5L, 12345L);
-        
+
         // Act
         MathProblemResponse response = this.useCase.solveMathProblem(request);
-        
+
         // Assert
         Assertions.assertEquals(12339L, response.result());
         Assertions.assertEquals(7L, response.x());
@@ -37,10 +37,10 @@ class MathProblemUseCaseTest {
     void shouldCalculateWhenYEqualsN() {
         // Arrange
         MathProblemRequest request = new MathProblemRequest(10L, 5L, 5L);
-        
+
         // Act
         MathProblemResponse response = this.useCase.solveMathProblem(request);
-        
+
         // Assert
         Assertions.assertEquals(5L, response.result());
     }
@@ -50,10 +50,10 @@ class MathProblemUseCaseTest {
     void shouldCalculateForLargeNumbers() {
         // Arrange - caso del ejemplo de Codeforces: x=2, y=0, n=999999999
         MathProblemRequest request = new MathProblemRequest(2L, 0L, 999999999L);
-        
+
         // Act
         MathProblemResponse response = this.useCase.solveMathProblem(request);
-        
+
         // Assert - k = 0 + floor((999999999-0)/2) * 2 = 0 + 499999999 * 2 = 999999998
         Assertions.assertEquals(999999998L, response.result());
     }
@@ -63,10 +63,10 @@ class MathProblemUseCaseTest {
     void shouldReturnMinusOneWhenYGreaterThanN() {
         // Arrange
         MathProblemRequest request = new MathProblemRequest(10L, 15L, 5L);
-        
+
         // Act
         MathProblemResponse response = this.useCase.solveMathProblem(request);
-        
+
         // Assert
         Assertions.assertEquals(-1L, response.result());
     }
@@ -101,16 +101,16 @@ class MathProblemUseCaseTest {
         // Arrange
         MathProblemRequest request1 = new MathProblemRequest(5L, 5L, 10L);
         MathProblemRequest request2 = new MathProblemRequest(5L, 7L, 10L);
-        
+
         // Act & Assert
         var exception1 = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             this.useCase.solveMathProblem(request1);
         });
-        
+
         var exception2 = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             this.useCase.solveMathProblem(request2);
         });
-        
+
         Assertions.assertEquals("y debe ser menor que x", exception1.getMessage());
         Assertions.assertEquals("y debe ser menor que x", exception2.getMessage());
     }
