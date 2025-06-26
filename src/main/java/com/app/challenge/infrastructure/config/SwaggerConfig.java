@@ -19,7 +19,7 @@ public class SwaggerConfig {
                 .description("API para resolver el problema matemático de Codeforces 1374A")
                 .contact(new Contact()
                     .name("Adolfo Villanueva")
-                    .email("adolfo@example.com"))
+                    .email("avillanueva198x@gmail.com"))
                 .license(new License()
                     .name("MIT License")
                     .url("https://opensource.org/licenses/MIT")));
