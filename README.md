@@ -2,7 +2,7 @@
 
 Aplicación fullstack para resolver el problema matemático de **Codeforces 1374A**, desarrollada con **Spring Boot** (backend) y **Angular 19** (frontend).
 
-## 🧮 Problema Matemático
+## Problema Matemático
 
 **Codeforces 1374A**: Dado x, y, n, encuentra el máximo k tal que:
 - `0 ≤ k ≤ n`
@@ -11,7 +11,7 @@ Aplicación fullstack para resolver el problema matemático de **Codeforces 1374
 [Ver problema original](https://codeforces.com/problemset/problem/1374/A)
 
 
-## 🚀 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Backend
 - **Java 21**
@@ -26,7 +26,7 @@ Aplicación fullstack para resolver el problema matemático de **Codeforces 1374
 - **HTML5 & CSS3**
 - **Bootstrap/CSS Grid** para diseño responsivo
 
-## 🛠️ Instalación y Ejecución
+## Instalación y Ejecución
 
 ### Prerrequisitos
 
@@ -71,7 +71,7 @@ ng serve
 # El frontend estará disponible en: http://localhost:4200
 ```
 
-## 📝 Uso de la Aplicación
+## Uso de la Aplicación
 
 ### API REST (Postman/cURL)
 
@@ -95,7 +95,7 @@ curl -X POST http://localhost:9191/api/v1/math/solve \
 }
 ```
 
-## 🧪 Casos de Prueba
+## Casos de Prueba
 
 ### Caso 1: Básico
 - **Entrada**: x=7, y=5, n=12345
@@ -113,7 +113,7 @@ curl -X POST http://localhost:9191/api/v1/math/solve \
 - **Verificación**: No existe k ≤ 4 tal que k mod 10 = 5
 
 
-## 📚 Documentación
+## Documentación
 
 ### API Documentation
 
@@ -126,7 +126,7 @@ Una vez que el backend esté ejecutándose, puedes acceder a:
 
 En `ms-inclusion-app/additional/postman/` encontrarás la colección de Postman con ejemplos de uso.
 
-## 🌐 Despliegue
+## Despliegue
 
 ### Preparación para Producción
 
@@ -153,7 +153,7 @@ docker build -t math-problem-backend .
 
 ```
 
-## 🔧 Configuración
+## Configuración
 
 ### CORS Configuration
 
@@ -164,7 +164,7 @@ El backend está configurado para permitir requests desde `http://localhost:4200
 ```
 
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Problemas Comunes
 
@@ -177,13 +177,13 @@ El backend está configurado para permitir requests desde `http://localhost:4200
 - **Backend**: Los logs aparecen en la consola donde ejecutas `bootRun`
 - **Frontend**: Los errores aparecen en la consola del navegador (F12)
 
-## 📞 Contacto
+## Contacto
 
 **Desarrollador**: Adolfo Villanueva  
 **Email**: [tu-email@ejemplo.com]  
 **LinkedIn**: [tu-perfil-linkedin]  
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto fue desarrollado como parte de una prueba técnica para Inclusion Cloud.
 
